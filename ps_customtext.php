@@ -74,7 +74,8 @@ class Ps_Customtext extends Module implements WidgetInterface
         return parent::install()
             && $this->installDB()
             && $this->registerHook('displayHome')
-            && $this->registerHook('actionShopDataDuplication');
+            && $this->registerHook('actionShopDataDuplication')
+            && $this->updatePosition(Hook::getIdByName('displayHome', false, 4));
     }
 
     public function installFrom16Version()
